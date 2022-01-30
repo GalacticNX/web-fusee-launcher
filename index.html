@@ -2,6 +2,16 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dongle">
+  <style>
+  body {
+  font-family: "Dongle", sans-serif;
+  }
+  .button {
+  border-radius: "4px";
+  background-color: "#666666";
+  color: "linen";
+  </style>
   <meta charset="utf-8">
   <title>WebFG</title>
 </head>
@@ -10,9 +20,10 @@
   <h1>Web Fusée Launcher</h1>
   <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
   <p>
-    Source can be found on <a href="https://github.com/atlas44/web-fusee-launcher">GitHub</a> (or by hitting view source, there is no backend!).
+    Source can be found on <a href="https://github.com/GalacticNX/web-launcher">GitHub</a> (or by hitting view source, there is no backend!).
     Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
     Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
+    Thanks to atlas44 for the web 'sploit code!
   </p>
 
   <p>
@@ -20,7 +31,7 @@
     <ol>
       <li>Put the Switch in RCM, and connect it to your device.</li>
       <li>Select either the example payload, or upload one.</li>
-      <li>Press 'Do the thing!'</li>
+      <li>Press 'Inject Payload'</li>
       <li>On the consent screen that appears, select 'APX' and hit confirm.</li>
       <li>If all goes well, the payload will launch!</li>
     </ol>
@@ -29,12 +40,11 @@
   <p>
     <h4>Random stuff:</h4>
     <ul>
-      <li>This is pretty poorly tested. I just kind wrote it and whatever. I'm not responsible if anything goes wrong!</li>
       <li>This does NOT work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!)</li>
       <li>This does NOT currently work on any browser but Chrome, because they don't implement WebUSB.</li>
       <li>On Linux, you might get an access denied error!
         If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>
-        <div>With the following contents:</div>
+        <div>with the following contents:</div>
         <div><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code></div>
       </li>
       <li>This has been tested and appears to work on Linux, OSX, Android (unrooted) and Chromebooks. Your mileage may vary.</li>
@@ -46,7 +56,7 @@
     <form id="mainForm">
       <p>
         <input type="radio" name="payload" id="fusee.bin" value="fusee.bin" checked>
-        <label for="fusee.bin">Example payload (fusee.bin)</label>
+        <label for="fusee.bin">Example payload (fusee.bin) (This payload is outdated; inject hekate instead.) </label>
       </p>
 
       <p>
@@ -56,10 +66,10 @@
       </p>
     </form>
 
-    <button id="goButton">Do the thing!</button>
+    <button class="button"id="goButton">Inject payload</button>
   </div>
 
-  <h3>Result:</h3>
+  <h3>Logs:</h3>
   <textarea cols="80" rows="12" id="output"></textarea>
 
   <script src="./fusee.bin.js"></script>
