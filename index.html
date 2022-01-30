@@ -7,10 +7,14 @@
   body {
   font-family: "Dongle", sans-serif;
   }
-  .button {
+  .goButton {
   border-radius: "4px";
   background-color: "#666666";
   color: "linen";
+  }
+  .logPanel {
+  border-radius: "4px";
+  
   </style>
   <meta charset="utf-8">
   <title>WebFG</title>
@@ -66,11 +70,11 @@
       </p>
     </form>
 
-    <button class="button"id="goButton">Inject payload</button>
+    <button class="button goButton" id="goButton">Inject payload</button>
   </div>
 
   <h3>Logs:</h3>
-  <textarea cols="80" rows="12" id="output"></textarea>
+  <textarea cols="80" rows="12" class="textarea logPanel" id="output"></textarea>
 
   <script src="./fusee.bin.js"></script>
   <script src="./main.js"></script>
