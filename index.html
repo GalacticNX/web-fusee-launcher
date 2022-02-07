@@ -6,6 +6,8 @@
   <style>
   body {
   font-family: "Montserrat", sans-serif;
+  color: #f8f8f8;
+  background-color: #2b2b2b;
   }
   .goButton {
   border-radius: "4px";
@@ -21,8 +23,8 @@
 </head>
 
 <body>
-  <h1>Web Fusée Launcher</h1>
-  <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
+  <h1>GalacticNX Web Launcher</h1>
+  <p>Launch Galactic from a browser using WebUSB.</p>
   <p>
     Source can be found on <a href="https://github.com/GalacticNX/web-launcher">GitHub</a> (or by hitting view source, there is no backend!).
     Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
@@ -34,7 +36,7 @@
     <h4>Instructions:</h4>
     <ol>
       <li>Put the Switch in RCM, and connect it to your device.</li>
-      <li>Select either the example payload, or upload one.</li>
+      <li>Upload the latest payload.bin from GitHub.</li>
       <li>Press 'Inject Payload'</li>
       <li>On the consent screen that appears, select 'APX' and hit confirm.</li>
       <li>If all goes well, the payload will launch!</li>
@@ -44,25 +46,20 @@
   <p>
     <h4>Random stuff:</h4>
     <ul>
-      <li>This does NOT work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!)</li>
-      <li>This does NOT currently work on any browser but Chrome, because they don't implement WebUSB.</li>
+      <li>This does NOT work every time on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!)</li>
+      <li>This does NOT currently work on any browser but Chromium-based browsers like Chrome and Edge, because they don't implement WebUSB.</li>
       <li>On Linux, you might get an access denied error!
         If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>
         <div>with the following contents:</div>
         <div><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code></div>
       </li>
-      <li>This has been tested and appears to work on Linux, OSX, Android (unrooted) and Chromebooks. Your mileage may vary.</li>
+      <li>This has been tested and appears to work on Linux, OS X, macOS, Android (both rooted and unrooted) and Chromebooks. Your mileage may vary.</li>
     </ul>
   </p>
 
   <h3>Payload:</h3>
   <div>
     <form id="mainForm">
-      <p>
-        <input type="radio" name="payload" id="fusee.bin" value="fusee.bin" checked>
-        <label for="fusee.bin">Example payload (fusee.bin) (This payload is outdated; inject hekate instead.) </label>
-      </p>
-
       <p>
         <input type="radio" name="payload" id="uploaded" value="uploaded">
         <label for="uploaded">Upload payload:</label>
